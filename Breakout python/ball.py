@@ -4,6 +4,8 @@ from settings import ball_x_speed, ball_y_speed, ball_radius, ball_color
 
 class Ball:
     def __init__(self, x, y, screen):
+        self.start_x = x
+        self.start_y = y
         self. x = x
         self.y = y
         self.screen = screen
@@ -19,6 +21,12 @@ class Ball:
         self.x -= self.x_speed
 
 
+    def reset(self):
+        self.x = self.start_x
+        self.y = self.start_y
+        self.x_speed = ball_x_speed
+        self.y_speed = ball_y_speed
+
 
     # bouncy ball 
     def bounce_x(self):
@@ -32,5 +40,5 @@ class Ball:
             self.bounce_x()
 
     def check_for_contact_on_y(self):
-        if self.y + self.radius <= 0:
+        if self.y - self.radius <= 0:
             self.bounce_y()

@@ -36,6 +36,15 @@ class Bricks:
                 self.bricks.append(brick)
                 self.brick_colors.append(random.choice(self.random_colors))
 
+    # removes a brick and colour together, so the colour doesn't change in neboring bricks 
+    def remove(self, index):
+        del self.bricks[index]
+        del self.brick_colors[index]
+
+    def reset(self):
+        self.bricks.clear()
+        self.brick_colors.clear()
+        self.set_values()
 
     def show_bricks(self):
         for loop in range(len(self.bricks)):

@@ -25,6 +25,8 @@ class ScoreBoard:
         self.screen.blit(high_score_text, (self.x, 26))
         self.screen.blit(trials_text, (self.x, 42))
 
+    def is_game_over(self):
+        return self.trials <= 0
 
     def game_over(self):
         game_over_color = "red"
@@ -60,3 +62,7 @@ class ScoreBoard:
         if self.score > self.high_score:
             with open("records.txt", mode="w") as file:
                 file.write(f"{self.score}")
+
+    def reset(self):
+        self.score = 0
+        self.trials = START_TRAILS # type: ignore

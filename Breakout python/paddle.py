@@ -26,3 +26,6 @@ class Paddle:
     def move_left(self):
         if self.rect.x >= 0:
             self.rect.x -= 2
+
+    def reset(self):
+        self.rect.x = self.x
